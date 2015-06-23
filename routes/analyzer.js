@@ -21,26 +21,6 @@ router.get('/', function(req, res, next) {
    res.render('analysis', { title: 'Express', data:[{name:"a"},{name:"b"},{name:"c"}] });
 });
 
-router.get('/summarystats/:mode/:level',function(req,res){
-    var level = parseInt(req.params.level);
-    var mode = req.params.mode;
-    var collection = db.get("gamesummary");
-
-    collection.col.aggregate([
-        {$match: {level: level, mode:mode}},
-        {$group: 
-        {_id:"total",
-         tries:  {$sum: "$summary.tries"},
-         correct:{$sum: "$summary.correct"},
-         time:{$sum: "$summary.totalTime"},
-         count:{$sum: 1}  
-        }}],
-      function(err,result){
-		  console.log('done');
-			res.json({done:true});          
-      }    );
-
-})
 
 router.get('/mapreduce/:mode/:level',function(req,res){
     var level = parseInt(req.params.level);
