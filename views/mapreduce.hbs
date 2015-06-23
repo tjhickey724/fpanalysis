@@ -1,0 +1,68 @@
+<h1>Statistical Analysis of FishPolice data</h1>
+<h2>Constraints</h2>
+<ul>
+	<li>
+		<b>{{mode}} mode</b> 
+	</li>
+	<li> only using trials where accuracy was at least 50% </li>
+	<li> the level was greater than {{level}} </li>
+</ul>
+
+
+
+<table>
+	<thead>
+		<tr><th>type</th><th>accuracy(%)</th><th>reaction time(ms)</th></tr>
+	</thead>
+<tbody>
+{{#with data2 }}
+  {{#with con}}
+  <tr>
+	  <td>congruent</td>
+	  <td>{{accuracy}}</td>
+	  <td>{{rt}}</td>
+  </tr>
+  {{/with}}
+
+  {{#with non}}
+  <tr>
+	  <td>non-congruent</td>
+	  <td>{{accuracy}}</td>
+	  <td>{{rt}}</td>
+  </tr>
+  {{/with}}
+
+  {{#with odd}}
+  <tr>
+	  <td>oddball</td>
+	  <td>{{accuracy}}</td>
+	  <td>{{rt}}</td>
+  </tr>
+  {{/with}}
+{{/with}}
+
+</tbody>
+</table>
+<hr/>
+<hr/>
+<hr/>
+
+<table>
+	<thead>
+		<tr><th>type</th><th>accuracy(%)</th><th>reaction time(ms)</th></tr>
+	</thead>
+<tbody>
+{{#each data }}
+  <tr>
+	  <td>{{_id}}</td>
+	  {{#with value}}<td>{{accuracy}}</td><td>{{rt}}</td>{{/with}}
+	  <td>{{data2}}</td>
+  </tr>
+{{/each}}
+</tbody>
+</table>
+
+
+<!--
+{"_id":"ff","value":{"accuracy":92.9481733220051,"rt":758.3281535648995,"raw":{"tries":1177,"correct":1094,"missed":8,"time":829611}}}
+-->

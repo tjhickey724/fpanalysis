@@ -1,0 +1,30 @@
+<h1>Raw form of data</h1>
+<h2>Constraints</h2>
+
+
+<table>
+	<thead>
+		<tr><th>type</th><th>tries</th><th>correct</th><th>time</th>
+			<th>mode</th><th>level</th><th>age</th><th>uid</th><th>gid</th></tr>
+	</thead>
+<tbody>
+{{#each data }}
+  <tr>
+	  <td>{{name}}</td>
+	  <td>{{tries}}</td>
+	  <td>{{correct}}</td>
+	  <td>{{time}}</td>
+	  <td>{{mode}}</td>
+	  <td>{{level}}</td>
+	  <td>{{age}}</td>
+	  <td>{{uid}}</td>
+	  <td>{{gid}}</td>
+  </tr>
+{{/each}}
+</tbody>
+</table>
+
+
+<!--
+{"_id":"ff","value":{"accuracy":92.9481733220051,"rt":758.3281535648995,"raw":{"tries":1177,"correct":1094,"missed":8,"time":829611}}}
+-->
